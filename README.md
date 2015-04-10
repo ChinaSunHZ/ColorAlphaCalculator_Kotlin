@@ -1,0 +1,2 @@
+# ColorAlphaCalculator_Kotlin
+用kotlin编写的android程序, 用来计算颜色透明度值
