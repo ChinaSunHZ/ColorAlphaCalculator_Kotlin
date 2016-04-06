@@ -1,32 +1,32 @@
 # ColorAlphaCalculator_Kotlin
-```用kotlin编写的android程序, 用来计算颜色透明度值```
+```用 kotlin 编写的 Android 程序, 用来计算颜色透明度值```
 
 >小练习:
 
->1,使用了anko编写界面
+>1,使用了 anko 编写界面
 
->2,练习了kotlin语法
+>2,练习了 kotlin 语法
 
->3,使用了kotlin和java互相调用
-
-
-##android studio配置kotlin的方法
-
-找到android studio的plugins
-
-使用Browse repository方式
-
-找到插件:Kotlin 和 kotlin extensions for android
+>3,使用了 kotlin 和 java 互相调用
 
 
-如果网络不好,也可以直接下载到本地,然后倒入到android studio中
+##Android Studio 配置 kotlin 的方法
 
-[kotlin插件下载地址](https://plugins.jetbrains.com/plugin/6954?pr=androidstudio)
+找到 Android Studio 的 plugins
 
-[kotlin extensions for android插件下载地址](https://plugins.jetbrains.com/plugin/7717?pr=androidstudio)
+使用 Browse repository 方式
+
+找到插件 :Kotlin 和 kotlin extensions for android
 
 
-把module中的build.gradle文件改成如下(按需修改)
+如果网络不好,也可以直接下载到本地,然后倒入到 Android Studio 中
+
+[ kotlin 插件下载地址](https://plugins.jetbrains.com/plugin/6954?pr=androidstudio)
+
+[ kotlin extensions for android 插件下载地址](https://plugins.jetbrains.com/plugin/7717?pr=androidstudio)
+
+
+把 Module 中的 build.gradle 文件改成如下(按需修改)
 ```
 apply plugin: 'android'
 apply plugin: 'kotlin-android'
@@ -74,10 +74,10 @@ dependencies {
 
 ```
 
-在main文件夹中 建立一个与java文件夹同级的文件夹kotlin.
+在 main 文件夹中 建立一个与 java 文件夹同级的文件夹 kotlin.
 
-建立好相应的package, 就可以进行开发了.
+建立好相应的 package , 就可以进行开发了.
 
-看看ColorAlphaCalculator_Kotlin这个demo就能了解个大概.
+看看 ColorAlphaCalculator_Kotlin 这个 Demo 就能了解个大概.
 
-清单文件里面和正常的activity一样, 直接声明即可
+清单文件里面和正常的 activity 一样, 直接声明即可
