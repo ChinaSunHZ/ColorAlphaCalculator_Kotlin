@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.text.InputType
 import android.text.TextUtils
 import android.widget.TextView
-import kotlinx.android.anko.*
+import org.jetbrains.anko.*
 
 /**
  * 计算ARGB颜色值的app
@@ -31,13 +31,15 @@ open class MainActivity : Activity() {
             button("计算") {
                 textSize = 20f
                 onClick {
-                    result = calculate(percentage.text.toString())
+                    if(!TextUtils.isEmpty(percentage.text.toString())){
+                        result = calculate(percentage.text.toString())
+                    }
                     if (!TextUtils.isEmpty(result)) {
                         percentage.editableText!!.clear()
                         resultView.setText("结果:" + result as CharSequence)
                     }
                 }
-            }.layoutParams {
+            }.lparams {
                 topMargin = dip(8)
                 width = matchParent
             }
@@ -47,7 +49,7 @@ open class MainActivity : Activity() {
     fun _LinearLayout.inputField(name: String): TextView {
         textView("$name") {
             textSize = 18f
-        }.layoutParams { verticalMargin = dip(4) }
+        }.lparams { verticalMargin = dip(4) }
         return editText() {
             setInputType(InputType.TYPE_CLASS_NUMBER)
         }
@@ -56,7 +58,7 @@ open class MainActivity : Activity() {
     fun _LinearLayout.getResultView(result: String): TextView {
         return textView() {
             textSize = 18f
-        }.layoutParams { verticalMargin = dip(8) }
+        }.lparams { verticalMargin = dip(8) }
     }
 
 
