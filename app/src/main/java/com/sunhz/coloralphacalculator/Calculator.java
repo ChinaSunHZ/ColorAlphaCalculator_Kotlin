@@ -7,8 +7,8 @@ package com.sunhz.coloralphacalculator;
 public class Calculator {
     public static String calculator(String numStr) {
         int num = Integer.parseInt(numStr);
-        if (num > 100) num = 100;
+        if (num > 255) num = 255;
         else if (num < 0) num = 0;
-        return Integer.toHexString(num * 255 / 100).toUpperCase();
+        return Integer.toHexString(num).toUpperCase();
     }
 }
