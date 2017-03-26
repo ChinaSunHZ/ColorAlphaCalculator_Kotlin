@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ColorAlphaCalculator</string>
+
+    <string name="hint_transparent_color_percentage">95</string>
 </resources>

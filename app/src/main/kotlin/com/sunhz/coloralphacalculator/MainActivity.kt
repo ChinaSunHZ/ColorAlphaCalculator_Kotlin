@@ -2,77 +2,74 @@ package com.sunhz.coloralphacalculator
 
 import android.app.Activity
 import android.os.Bundle
+import android.text.InputFilter
 import android.text.InputType
 import android.text.TextUtils
-import android.widget.TextView
 import org.jetbrains.anko.*
 
 /**
- * 计算ARGB颜色值的app
+ * Main Activity
  * Created by Spencer on 15/4/10.
  */
-
-
 open class MainActivity : Activity() {
 
+    override fun onCreate(saveInstanceState: Bundle?) {
+        super.onCreate(saveInstanceState)
 
-    protected override fun onCreate(saveInstanceState: Bundle?) {
-        super.onCreate(saveInstanceState);
-
-        verticalLayout({
+        verticalLayout {
             padding = dip(16)
 
-            var result: String? = null;
+            var calculatorResult: String
 
-            val percentage = inputField("颜色透明度百分比:");
+            val etPercentage = editText {
+                hint = context.resources.getString(R.string.hint_transparent_color_percentage)
+                textSize = 15f
+                inputType = InputType.TYPE_CLASS_NUMBER
+                filters = arrayOf(InputFilter.LengthFilter(3))
+            }
 
-            val resultView = getResultView("");
+            val tvResult = textView {
+                textSize = 18f
+            }.lparams {
+                verticalMargin = dip(8)
+            }
 
-            button("计算") {
+            button("Calculator") {
                 textSize = 20f
-                onClick {
-                    if(!TextUtils.isEmpty(percentage.text.toString())){
-                        result = calculate(percentage.text.toString())
+
+                setOnClickListener {
+                    calculatorResult = etPercentage.text.toString()
+
+                    if (TextUtils.isEmpty(calculatorResult)) {
+                        calculatorResult = "no result."
+                    } else {
+                        calculatorResult = calculate(calculatorResult)
                     }
-                    if (!TextUtils.isEmpty(result)) {
-                        percentage.editableText!!.clear()
-                        resultView.setText("结果:" + result as CharSequence)
-                    }
+
+                    etPercentage.editableText!!.clear()
+                    tvResult.text = String.format("result:%s", calculatorResult)
                 }
             }.lparams {
                 topMargin = dip(8)
                 width = matchParent
             }
-        })
-    }
-
-    fun _LinearLayout.inputField(name: String): TextView {
-        textView("$name") {
-            textSize = 18f
-        }.lparams { verticalMargin = dip(4) }
-        return editText() {
-            setInputType(InputType.TYPE_CLASS_NUMBER)
         }
     }
 
-    fun _LinearLayout.getResultView(result: String): TextView {
-        return textView() {
-            textSize = 18f
-        }.lparams { verticalMargin = dip(8) }
-    }
-
-
     fun calculate(percentage: String): String {
-        // kotlin方式
-        //        var temp: Int = Integer.parseInt(percentage)
-        //
-        //        if (temp > 100) temp = 100
-        //        else if (temp < 0) temp = 0
-        //
-        //        return Integer.toHexString(temp * 255 / 100).toUpperCase()
+        var value = Integer.parseInt(percentage)
 
-        // 调用java代码方式
-        return Calculator.calculator(percentage)
+        // Kotlin
+//        if (value > 100) {
+//            value = 100
+//        } else if (value < 0) {
+//            value = 0
+//        }
+//
+//        val result = value * 255 / 100
+//        return Integer.toHexString(result).toUpperCase()
+
+        // Java
+        return Calculator.calculator(value)
     }
-
 }
