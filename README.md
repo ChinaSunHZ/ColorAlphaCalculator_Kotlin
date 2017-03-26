@@ -10,7 +10,7 @@
 >3,使用了 kotlin 和 java 互相调用
 
 
-##Android Studio 配置 kotlin 的方法
+## Android Studio 配置 kotlin 的方法
 
 找到 Android Studio 的 plugins
 
@@ -21,9 +21,9 @@
 
 如果网络不好,也可以直接下载到本地,然后倒入到 Android Studio 中
 
-[ kotlin 插件下载地址](https://plugins.jetbrains.com/plugin/6954?pr=androidstudio)
+[kotlin 插件下载地址](https://plugins.jetbrains.com/plugin/6954?pr=androidstudio)
 
-[ kotlin extensions for android 插件下载地址](https://plugins.jetbrains.com/plugin/7717?pr=androidstudio)
+[kotlin extensions for android 插件下载地址](https://plugins.jetbrains.com/plugin/7717?pr=androidstudio)
 
 
 把 Module 中的 build.gradle 文件改成如下(按需修改)
